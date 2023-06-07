@@ -20,5 +20,3 @@ dependencyResolutionManagement {
 rootProject.name = "Skeleton Android Project"
 
 include ':app'
-include ':data'
-include ':domain'
