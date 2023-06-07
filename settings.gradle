@@ -1,5 +1,6 @@
 
 dependencyResolutionManagement {
+
     versionCatalogs {
         configs {
             from(files("gradle/configs.versions.toml"))
@@ -15,6 +16,8 @@ dependencyResolutionManagement {
         }
     }
 }
+
+rootProject.name = "Skeleton Android Project"
 
 include ':app'
 include ':data'

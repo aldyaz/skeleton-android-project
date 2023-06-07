@@ -7,12 +7,12 @@ plugins {
 
 android {
 
-    compileSdkVersion Configs.compileSdkVersion
-    buildToolsVersion Configs.buildToolsVersion
+    compileSdkVersion configs.versions.compileSdk.get().toInteger()
+    buildToolsVersion configs.versions.buildTools.get()
 
     defaultConfig {
-        minSdkVersion Configs.minSdkVersion
-        targetSdkVersion Configs.compileSdkVersion
+        minSdkVersion configs.versions.minSdk.get().toInteger()
+        targetSdkVersion configs.versions.targetSdk.get().toInteger()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
