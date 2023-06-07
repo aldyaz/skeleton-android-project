@@ -11,7 +11,7 @@ android {
     buildToolsVersion configs.versions.buildTools.get()
 
     defaultConfig {
-        applicationId "com.aldyaz.movix"
+        applicationId "com.example.app"
         minSdkVersion configs.versions.minSdk.get().toInteger()
         targetSdkVersion configs.versions.targetSdk.get().toInteger()
         versionCode configs.versions.appVersionCode.get().toInteger()
