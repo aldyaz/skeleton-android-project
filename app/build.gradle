@@ -7,15 +7,15 @@ plugins {
 
 android {
 
-    compileSdkVersion Configs.compileSdkVersion
-    buildToolsVersion Configs.buildToolsVersion
+    compileSdkVersion configs.versions.compileSdk.get().toInteger()
+    buildToolsVersion configs.versions.buildTools.get()
 
     defaultConfig {
         applicationId "com.aldyaz.movix"
-        minSdkVersion Configs.minSdkVersion
-        targetSdkVersion Configs.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion configs.versions.minSdk.get().toInteger()
+        targetSdkVersion configs.versions.targetSdk.get().toInteger()
+        versionCode configs.versions.appVersionCode.get().toInteger()
+        versionName configs.versions.appVersionName.get()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -51,7 +51,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion Compose.compilerVersion
+        kotlinCompilerExtensionVersion composable.versions.compiler.get()
     }
 }
 
@@ -66,41 +66,39 @@ dependencies {
     implementation project(path: ':domain')
     implementation project(path: ':data')
 
-    implementation AndroidX.core
-    implementation AndroidX.annotationLib
-    implementation Compose.activityCompose
+    implementation core.androidx.core
+    implementation core.androidx.annotation
+    implementation composable.activity
 
-    implementation Net.retrofit
-    implementation Net.okHttpLogging
+    implementation core.retrofit
+    implementation core.okhttp3.logging.interceptor
 
-    implementation Google.material
+    implementation core.lifecycle.viewmodel
+    implementation core.lifecycle.livedata
 
-    implementation AndroidLifecycle.viewModel
-    implementation AndroidLifecycle.liveData
+    implementation core.hilt.android
 
-    implementation Google.hiltAndroid
+    kapt core.hilt.compiler
+    kapt core.hilt.android.compiler
+    kapt core.lifecycle.compiler
 
-    kapt Google.hiltCompiler
-    kapt AndroidX.hiltCompiler
-    kapt AndroidLifecycle.compiler
+    implementation composable.ui
+    implementation composable.foundation
+    implementation composable.material
+    implementation composable.lifecycle.viewmodel
+    implementation composable.runtime.livedata
 
-    implementation Compose.ui
-    implementation Compose.foundation
-    implementation Compose.material
-    implementation Compose.lifecycleViewModel
-    implementation Compose.runtimeLiveData
+    implementation core.coroutines.core
+    implementation core.coroutines.android
 
-    implementation KotlinLib.coroutinesCore
-    implementation KotlinLib.coroutinesAndroid
+    implementation core.retrofit.converter.moshi
+    implementation core.moshi.kotlin
 
-    implementation Net.moshiConverter
-    implementation Net.moshiKotlin
+    debugImplementation core.chucker.debug
+    releaseImplementation core.chucker.release
 
-    debugImplementation Net.chuckerDebug
-    releaseImplementation Net.chuckerRelease
-
-    testImplementation TestLib.junit
-    testImplementation TestLib.core
-    testImplementation TestLib.mockitoKotlin
-    testImplementation TestLib.mockk
+    testImplementation test.junit
+    testImplementation test.androidx.core
+    testImplementation test.mockito.kotlin
+    testImplementation test.mockk
 }

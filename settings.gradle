@@ -1,3 +1,21 @@
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        configs {
+            from(files("gradle/configs.versions.toml"))
+        }
+        core {
+            from(files("gradle/core.versions.toml"))
+        }
+        composable {
+            from(files("gradle/compose.versions.toml"))
+        }
+        test {
+            from(files("gradle/test.versions.toml"))
+        }
+    }
+}
+
 include ':app'
 include ':data'
 include ':domain'

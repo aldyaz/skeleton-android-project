@@ -6,12 +6,12 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation KotlinLib.stdlib
-    implementation Net.gsonConverter
-    implementation JavaLib.javaxInject
-    implementation JavaLib.javaxAnnotation
+    implementation core.kotlin.stdlib
+    implementation core.retrofit.converter.gson
+    implementation core.javax.inject
+    implementation core.javax.annotation
 
-    implementation KotlinLib.coroutinesCore
+    implementation core.coroutines.core
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8

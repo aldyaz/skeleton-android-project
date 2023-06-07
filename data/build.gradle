@@ -48,23 +48,24 @@ dependencies {
 
     implementation project(path: ':domain')
 
-    api KotlinLib.stdlib
+    api core.kotlin.stdlib
 
-    implementation Net.retrofit
-    implementation Net.okHttpLogging
+    implementation core.retrofit
+    implementation core.okhttp3.logging.interceptor
 
-    implementation Google.hiltAndroid
+    implementation core.hilt.android
 
-    implementation Net.moshiConverter
-    implementation Net.moshiKotlin
+    implementation core.retrofit.converter.moshi
+    implementation core.retrofit.converter.gson
 
-    implementation KotlinLib.coroutinesCore
+    implementation core.coroutines.core
 
-    kapt Google.hiltCompiler
-    kapt AndroidX.hiltCompiler
+    kapt core.hilt.compiler
+    kapt core.hilt.android.compiler
 
-    testImplementation TestLib.junit
-    testImplementation TestLib.core
-    testImplementation TestLib.mockitoKotlin
-    testImplementation TestLib.mockk
+    testImplementation test.junit
+    testImplementation test.junit.kotlin
+    testImplementation test.androidx.core
+    testImplementation test.mockito.kotlin
+    testImplementation test.mockk
 }

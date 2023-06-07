@@ -1,0 +1,7 @@
+[versions]
+compileSdk = "33"
+buildTools = "30.0.3"
+minSdk = "21"
+targetSdk = "33"
+appVersionCode = "1"
+appVersionName = "1.0"
